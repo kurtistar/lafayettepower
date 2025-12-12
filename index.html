@@ -3,288 +3,255 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Lafayette Power — Coming soon</title>
-  <meta name="description" content="Lafayette Power — innovation asymétrique. Coming soon." />
+  <meta name="description" content="Lafayette Power — plateforme vitrine en préparation. Publication minimale." />
   <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#ffffff" />
 
   <style>
     :root{
-      --bg:#070A10;
-      --fg:#EAF0FF;
-      --muted:rgba(234,240,255,.70);
-      --line:rgba(234,240,255,.14);
-      --accent:#7BF0FF;
-      --accent2:#B9FF6A;
-      --shadow: 0 20px 60px rgba(0,0,0,.55);
+      --bg:#ffffff;
+      --fg:#0b1b2b;
+      --muted:#52606d;
+      --line:rgba(11,27,43,.10);
+      --pill:rgba(11,27,43,.06);
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
       --radius:18px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --max: 980px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
     body{
       margin:0;
-      font-family:var(--sans);
+      background:var(--bg);
       color:var(--fg);
-      background:
-        radial-gradient(1200px 600px at 20% -10%, rgba(123,240,255,.18), transparent 60%),
-        radial-gradient(900px 500px at 90% 10%, rgba(185,255,106,.12), transparent 55%),
-        radial-gradient(900px 900px at 50% 120%, rgba(123,240,255,.08), transparent 60%),
-        var(--bg);
-      min-height:100vh;
-      overflow-x:hidden;
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
-    .wrap{max-width:980px;margin:0 auto;padding:28px 18px 70px;}
-    header{
-      display:flex;align-items:center;justify-content:space-between;gap:14px;
-      padding:10px 0 20px;
+    .wrap{
+      min-height:100%;
+      display:grid;
+      place-items:center;
+      padding: clamp(18px, 4vw, 44px);
     }
-    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;}
-    .logo{
-      width:44px;height:44px;border-radius:14px;
-      box-shadow:var(--shadow);
+
+    .card{
+      width:min(var(--max), 100%);
       border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-      display:grid;place-items:center;overflow:hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: clamp(18px, 3.5vw, 34px);
+      background:#fff;
     }
-    .brand strong{font-size:16px;letter-spacing:.5px}
-    .brand small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom: clamp(18px, 3vw, 26px);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width: min(520px, 100%);
+    }
+
+    .logo{
+      width: clamp(120px, 26vw, 340px);
+      max-width: 100%;
+      height: auto;
+      display:block;
+      border-radius: 10px;
+    }
+
+    .tagline{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      color:var(--muted);
+      font-size: 14px;
+      line-height:1.2;
+    }
 
     .pill{
-      font-family:var(--mono);
-      font-size:12px;
-      padding:8px 10px;
       border:1px solid var(--line);
-      border-radius:999px;
-      color:var(--muted);
-      background:rgba(255,255,255,.03);
+      background: var(--pill);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight:600;
+      font-size: 13px;
+      color: var(--fg);
       white-space:nowrap;
     }
 
-    .hero{
-      margin-top:18px;
-      padding:22px;
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      background:rgba(255,255,255,.03);
-      box-shadow:var(--shadow);
-      position:relative;
-      overflow:hidden;
-    }
-    .hero:before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background:linear-gradient(120deg, rgba(123,240,255,.14), transparent 45%, rgba(185,255,106,.10));
-      filter:blur(18px);
-      opacity:.7;
-      pointer-events:none;
-    }
-    .hero > *{position:relative}
-
-    h1{margin:0;font-size:40px;letter-spacing:-.6px;line-height:1.05;}
-    .sub{
-      margin:12px 0 0;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.5;
-      max-width:78ch;
+    h1{
+      margin: 0 0 10px 0;
+      font-size: clamp(26px, 4.5vw, 46px);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
     }
 
-    .row{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
-
-    .badge{
-      font-family:var(--mono);
-      font-size:12px;
-      padding:10px 12px;
-      border:1px solid rgba(185,255,106,.25);
-      background:linear-gradient(180deg, rgba(185,255,106,.16), rgba(185,255,106,.06));
-      border-radius:999px;
-      color:var(--fg);
-      display:inline-flex;
-      gap:10px;
-      align-items:center;
-      box-shadow:0 14px 40px rgba(0,0,0,.45);
-    }
-    .dot{
-      width:8px;height:8px;border-radius:50%;
-      background:var(--accent2);
-      box-shadow:0 0 0 0 rgba(185,255,106,.45);
-      animation:pulse 1.7s infinite;
-    }
-    @keyframes pulse{
-      0%{box-shadow:0 0 0 0 rgba(185,255,106,.45)}
-      70%{box-shadow:0 0 0 12px rgba(185,255,106,0)}
-      100%{box-shadow:0 0 0 0 rgba(185,255,106,0)}
-    }
-
-    .kwBox{
-      border:1px solid var(--line);
-      border-radius:999px;
-      padding:10px 14px;
-      background:rgba(0,0,0,.18);
-      display:flex;
-      gap:10px;
-      align-items:center;
-      min-height:40px;
-      box-shadow:0 12px 30px rgba(0,0,0,.35);
-    }
-    .pulse2{
-      width:8px;height:8px;border-radius:50%;
-      background:var(--accent);
-      box-shadow:0 0 0 0 rgba(123,240,255,.55);
-      animation:pulse2 1.6s infinite;
-    }
-    @keyframes pulse2{
-      0%{box-shadow:0 0 0 0 rgba(123,240,255,.55)}
-      70%{box-shadow:0 0 0 12px rgba(123,240,255,0)}
-      100%{box-shadow:0 0 0 0 rgba(123,240,255,0)}
-    }
-
-    .mono{font-family:var(--mono)}
-    .kw{
-      font-family:var(--mono);
-      font-size:13px;
-      letter-spacing:.2px;
-      min-width:20ch;
-    }
-    .kw .fade{
-      display:inline-block;
-      animation:fadeIn .35s ease-out both;
-    }
-    @keyframes fadeIn{
-      from{opacity:0;transform:translateY(2px)}
-      to{opacity:1;transform:translateY(0)}
+    p.lead{
+      margin: 0 0 18px 0;
+      color: var(--muted);
+      font-size: clamp(15px, 2.2vw, 18px);
+      line-height: 1.55;
+      max-width: 70ch;
     }
 
     .grid{
-      margin-top:18px;
       display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:12px;
+      gap: 14px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 18px;
     }
-    .card{
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      background:rgba(255,255,255,.02);
-      padding:14px;
-    }
-    .card h3{margin:0 0 8px;font-size:14px;letter-spacing:.2px;}
-    .card p{margin:0;color:var(--muted);font-size:13px;line-height:1.5;}
 
-    footer{
-      margin-top:18px;
-      color:rgba(234,240,255,.55);
-      font-size:12px;
+    .box{
+      border:1px solid var(--line);
+      background: #fff;
+      border-radius: 16px;
+      padding: 14px 14px;
+    }
+    .box h3{
+      margin:0 0 6px 0;
+      font-size: 14px;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
+    .box p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.5;
+    }
+
+    .keywords{
       display:flex;
-      justify-content:space-between;
+      align-items:center;
       gap:10px;
       flex-wrap:wrap;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .kw{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background:#fff;
+      color: var(--fg);
+      font-weight:600;
+    }
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background: var(--fg);
+      opacity:.75;
     }
 
-    @media (max-width:820px){
-      h1{font-size:32px}
-      .grid{grid-template-columns:1fr}
-      .kw{min-width:14ch}
+    footer{
+      margin-top: 18px;
+      display:flex;
+      justify-content:space-between;
+      gap: 10px;
+      flex-wrap:wrap;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
+      header{ justify-content:center; }
+      .tagline{ justify-content:center; }
+      footer{ justify-content:center; text-align:center; }
+      .brand{ justify-content:center; }
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <header>
-      <a class="brand" href="#" aria-label="Lafayette Power">
-        <div class="logo" aria-hidden="true">
-          <!-- Logo SVG: pas besoin d'image -->
-          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="g" x1="0" y1="0" x2="34" y2="34">
-                <stop stop-color="#7BF0FF" stop-opacity="0.95"/>
-                <stop offset="1" stop-color="#B9FF6A" stop-opacity="0.85"/>
-              </linearGradient>
-            </defs>
-            <rect x="4" y="4" width="26" height="26" rx="10" stroke="url(#g)" stroke-width="1.6" opacity="0.95"/>
-            <path d="M11 22V12h2.2v8.1H18V22H11Z" fill="url(#g)"/>
-            <path d="M19.4 22V12h2.2v3.6h3.2c2.1 0 3.2 1.2 3.2 3.1S26.9 22 24.8 22h-5.4Zm2.2-1.9h3.1c1 0 1.5-.6 1.5-1.5s-.5-1.5-1.5-1.5h-3.1v3Z" fill="url(#g)"/>
-          </svg>
+  <main class="wrap">
+    <section class="card" role="region" aria-label="Lafayette Power">
+      <header>
+        <div class="brand">
+          <!-- Mets ton fichier logo dans le repo (même dossier que index.html) -->
+          <img class="logo" src="LOGO_FILENAME.png" alt="Lafayette Power" />
         </div>
-        <div>
-          <strong>Lafayette Power</strong>
-          <small>innovation • asymétrie • robustesse</small>
+
+        <div class="tagline">
+          <span class="pill">Accès contrôlé</span>
+          <span class="pill">Publication minimale</span>
+          <span class="pill" id="pulse">COMING SOON</span>
         </div>
-      </a>
+      </header>
 
-      <div class="pill">Accès contrôlé • publication minimale</div>
-    </header>
-
-    <main class="hero">
       <h1>Signal en préparation.</h1>
-      <p class="sub">
-        Plateforme vitrine en cours de mise en ligne. Les informations détaillées, scénarios et éléments
-        techniques ne sont pas publiés.
+      <p class="lead">
+        Plateforme vitrine en cours de mise en ligne. Les informations détaillées, scénarios et éléments techniques ne sont pas publiés.
       </p>
 
-      <div class="row">
-        <span class="badge"><span class="dot"></span>COMING SOON</span>
-
-        <div class="kwBox" aria-label="Mots-clés">
-          <span class="pulse2" aria-hidden="true"></span>
-          <span class="mono" style="color:var(--muted);font-size:12px;">keywords</span>
-          <span class="kw"><span id="kw" class="fade">innovation</span></span>
-        </div>
+      <div class="keywords" aria-live="polite">
+        <span style="opacity:.9;">keywords</span>
+        <span class="kw"><span class="dot"></span><span id="kw">innovation</span></span>
       </div>
 
       <div class="grid">
-        <div class="card">
+        <div class="box">
           <h3>Architecture</h3>
-          <p>Systèmes simples, robustes, combinatoires. Recherche du rapport effet/coût maximal.</p>
+          <p>Systèmes simples, robustes, combinatoires. Recherche du ratio effet/coût maximal.</p>
         </div>
-        <div class="card">
+        <div class="box">
           <h3>Asymétrie</h3>
           <p>Approches distribuées, difficiles à neutraliser, adaptées aux environnements contraints.</p>
         </div>
-        <div class="card">
+        <div class="box">
           <h3>Confidentialité</h3>
           <p>Publication minimale. Pas de schémas sensibles. Pas de données d’emploi ouvertes.</p>
         </div>
       </div>
-    </main>
 
-    <footer>
-      <div>© <span id="y"></span> Lafayette Power</div>
-      <div class="mono">lafayettepower.fr</div>
-    </footer>
-  </div>
+      <footer>
+        <span>© 2025 Lafayette Power</span>
+        <span>lafayettepower.fr</span>
+      </footer>
+    </section>
+  </main>
 
   <script>
+    // Rotation mots-clés (propre, léger)
     const words = [
-      "innovation",
-      "optimisation",
-      "asymétrie",
-      "robustesse",
-      "autonomie",
-      "déploiement rapide",
-      "systèmes autonomes",
-      "résilience",
-      "discrétion",
-      "low-cost",
-      "effet de levier"
+      "innovation", "asymétrie", "robustesse", "systèmes autonomes",
+      "optimisation", "architecture", "discrétion", "effet/coût"
     ];
-
-    const el = document.getElementById("kw");
     let i = 0;
-
-    function swap(){
+    const el = document.getElementById("kw");
+    setInterval(() => {
       i = (i + 1) % words.length;
-      el.classList.remove("fade");
-      void el.offsetWidth; // relance l’animation
       el.textContent = words[i];
-      el.classList.add("fade");
-    }
+    }, 1400);
 
-    setInterval(swap, 1200);
-    document.getElementById("y").textContent = new Date().getFullYear();
+    // petit “pulse” sur le badge coming soon
+    const pulse = document.getElementById("pulse");
+    let on = false;
+    setInterval(() => {
+      on = !on;
+      pulse.style.background = on ? "rgba(11,27,43,.10)" : "rgba(11,27,43,.06)";
+    }, 900);
   </script>
 </body>
 </html>
