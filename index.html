@@ -14,6 +14,8 @@
       --fg:#0b1220;
       --muted:#5b6475;
       --max:1100px;
+      --line: rgba(20,30,50,.12);
+      --ok:#1aa34a;
     }
 
     *{box-sizing:border-box}
@@ -48,32 +50,64 @@
       image-rendering:auto;
     }
 
-    .tagline{
-      margin:0;
-      font-size:clamp(14px, 1.7vw, 18px);
-      line-height:1.4;
-      color:var(--muted);
-      max-width:65ch;
-    }
-
     .pill{
       display:inline-flex;
       align-items:center;
       gap:.6rem;
       padding:.65rem 1rem;
-      border:1px solid rgba(20,30,50,.12);
+      border:1px solid var(--line);
       border-radius:999px;
       font-size:clamp(12px, 1.6vw, 14px);
       color:rgba(11,18,32,.82);
-      background:rgba(255,255,255,.8);
+      background:rgba(255,255,255,.86);
       backdrop-filter:saturate(140%) blur(6px);
     }
     .dot{
       width:10px;
       height:10px;
       border-radius:50%;
-      background:#1aa34a;
+      background:var(--ok);
       box-shadow:0 0 0 5px rgba(26,163,74,.12);
+    }
+
+    /* Keywords (apparition / disparition) */
+    .keywords{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:.6rem;
+      flex-wrap:wrap;
+      margin-top:2px;
+      color:var(--muted);
+      font-size:clamp(13px, 1.7vw, 16px);
+      line-height:1.35;
+    }
+    .k-label{
+      opacity:.75;
+    }
+    .k-word{
+      position:relative;
+      display:inline-block;
+      padding:.25rem .6rem;
+      border:1px solid rgba(20,30,50,.10);
+      border-radius:999px;
+      background:rgba(245,247,252,.9);
+      color:rgba(11,18,32,.88);
+      min-width:12ch;
+      text-align:center;
+      overflow:hidden;
+      white-space:nowrap;
+    }
+    .k-word span{
+      display:inline-block;
+      will-change: transform, opacity, filter;
+      animation: swap 2.8s ease-in-out infinite;
+    }
+    @keyframes swap{
+      0%   {opacity:0; transform:translateY(6px); filter:blur(2px)}
+      12%  {opacity:1; transform:translateY(0);  filter:blur(0)}
+      78%  {opacity:1; transform:translateY(0);  filter:blur(0)}
+      100% {opacity:0; transform:translateY(-6px); filter:blur(2px)}
     }
 
     footer{
@@ -81,8 +115,6 @@
       font-size:12px;
       color:rgba(11,18,32,.55);
     }
-    footer a{color:inherit; text-decoration:none; border-bottom:1px dotted rgba(11,18,32,.35)}
-    footer a:hover{border-bottom-color:rgba(11,18,32,.7)}
   </style>
 </head>
 
@@ -91,7 +123,7 @@
     <section class="card" aria-label="Lafayette Power">
       <img
         class="logo"
-        src="98EA4359-AC6E-40FB-92CD-8B9C054800FF.png"
+        src="IMG_3337.png"
         alt="Lafayette Power"
         loading="eager"
       />
@@ -101,9 +133,10 @@
         <span>Site en préparation</span>
       </div>
 
-      <p class="tagline">
-        Vitrine minimaliste. Informations détaillées et éléments techniques non publiés.
-      </p>
+      <div class="keywords" aria-label="Mots-clés">
+        <span class="k-label">Mots-clés</span>
+        <span class="k-word"><span id="kw">innovation</span></span>
+      </div>
 
       <footer>
         © <span id="y"></span> Lafayette Power
@@ -112,7 +145,28 @@
   </main>
 
   <script>
+    // année auto
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    // rotation de mots-clés (apparition / disparition)
+    const words = [
+      "innovation",
+      "optimisation",
+      "asymétrie",
+      "robustesse",
+      "systèmes autonomes",
+      "low cost",
+      "résilience",
+      "architecture"
+    ];
+    const kw = document.getElementById("kw");
+    let i = 0;
+
+    // change le mot au moment où l'anim retombe à 0 d'opacité
+    setInterval(() => {
+      i = (i + 1) % words.length;
+      kw.textContent = words[i];
+    }, 2800); // doit matcher la durée @keyframes swap (2.8s)
   </script>
 </body>
 </html>
