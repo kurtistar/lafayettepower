@@ -4,254 +4,115 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Lafayette Power — Coming soon</title>
-  <meta name="description" content="Lafayette Power — plateforme vitrine en préparation. Publication minimale." />
+  <title>Lafayette Power</title>
+  <meta name="description" content="Lafayette Power — site vitrine." />
   <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#ffffff" />
 
   <style>
     :root{
       --bg:#ffffff;
-      --fg:#0b1b2b;
-      --muted:#52606d;
-      --line:rgba(11,27,43,.10);
-      --pill:rgba(11,27,43,.06);
-      --shadow: 0 10px 30px rgba(0,0,0,.08);
-      --radius:18px;
-      --max: 980px;
+      --fg:#0b1220;
+      --muted:#5b6475;
+      --max:1100px;
     }
 
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
       background:var(--bg);
       color:var(--fg);
-      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
     }
 
     .wrap{
-      min-height:100%;
+      min-height:100svh;
       display:grid;
       place-items:center;
-      padding: clamp(18px, 4vw, 44px);
+      padding:clamp(16px, 4vw, 48px);
     }
 
     .card{
-      width:min(var(--max), 100%);
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: clamp(18px, 3.5vw, 34px);
-      background:#fff;
-    }
-
-    header{
+      width:min(100%, var(--max));
       display:flex;
+      flex-direction:column;
       align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
-      margin-bottom: clamp(18px, 3vw, 26px);
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      min-width: min(520px, 100%);
+      text-align:center;
+      gap:clamp(10px, 2vw, 18px);
     }
 
     .logo{
-      width: clamp(120px, 26vw, 340px);
-      max-width: 100%;
-      height: auto;
+      width:min(720px, 92vw);
+      height:auto;
       display:block;
-      border-radius: 10px;
+      image-rendering:auto;
     }
 
     .tagline{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
+      margin:0;
+      font-size:clamp(14px, 1.7vw, 18px);
+      line-height:1.4;
       color:var(--muted);
-      font-size: 14px;
-      line-height:1.2;
+      max-width:65ch;
     }
 
     .pill{
-      border:1px solid var(--line);
-      background: var(--pill);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-weight:600;
-      font-size: 13px;
-      color: var(--fg);
-      white-space:nowrap;
-    }
-
-    h1{
-      margin: 0 0 10px 0;
-      font-size: clamp(26px, 4.5vw, 46px);
-      letter-spacing: -0.02em;
-      line-height: 1.05;
-    }
-
-    p.lead{
-      margin: 0 0 18px 0;
-      color: var(--muted);
-      font-size: clamp(15px, 2.2vw, 18px);
-      line-height: 1.55;
-      max-width: 70ch;
-    }
-
-    .grid{
-      display:grid;
-      gap: 14px;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      margin-top: 18px;
-    }
-
-    .box{
-      border:1px solid var(--line);
-      background: #fff;
-      border-radius: 16px;
-      padding: 14px 14px;
-    }
-    .box h3{
-      margin:0 0 6px 0;
-      font-size: 14px;
-      letter-spacing: .02em;
-      text-transform: uppercase;
-    }
-    .box p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.5;
-    }
-
-    .keywords{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .kw{
       display:inline-flex;
       align-items:center;
-      gap:8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border:1px solid var(--line);
-      background:#fff;
-      color: var(--fg);
-      font-weight:600;
+      gap:.6rem;
+      padding:.65rem 1rem;
+      border:1px solid rgba(20,30,50,.12);
+      border-radius:999px;
+      font-size:clamp(12px, 1.6vw, 14px);
+      color:rgba(11,18,32,.82);
+      background:rgba(255,255,255,.8);
+      backdrop-filter:saturate(140%) blur(6px);
     }
     .dot{
-      width:8px;
-      height:8px;
-      border-radius:999px;
-      background: var(--fg);
-      opacity:.75;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:#1aa34a;
+      box-shadow:0 0 0 5px rgba(26,163,74,.12);
     }
 
     footer{
-      margin-top: 18px;
-      display:flex;
-      justify-content:space-between;
-      gap: 10px;
-      flex-wrap:wrap;
-      color: var(--muted);
-      font-size: 12px;
+      margin-top:clamp(18px, 3vw, 26px);
+      font-size:12px;
+      color:rgba(11,18,32,.55);
     }
-
-    @media (max-width: 860px){
-      .grid{ grid-template-columns: 1fr; }
-      header{ justify-content:center; }
-      .tagline{ justify-content:center; }
-      footer{ justify-content:center; text-align:center; }
-      .brand{ justify-content:center; }
-    }
+    footer a{color:inherit; text-decoration:none; border-bottom:1px dotted rgba(11,18,32,.35)}
+    footer a:hover{border-bottom-color:rgba(11,18,32,.7)}
   </style>
 </head>
 
 <body>
   <main class="wrap">
-    <section class="card" role="region" aria-label="Lafayette Power">
-      <header>
-        <div class="brand">
-          <!-- Mets ton fichier logo dans le repo (même dossier que index.html) -->
-          <img class="logo" src="LOGO_FILENAME.png" alt="Lafayette Power" />
-        </div>
+    <section class="card" aria-label="Lafayette Power">
+      <img
+        class="logo"
+        src="98EA4359-AC6E-40FB-92CD-8B9C054800FF.png"
+        alt="Lafayette Power"
+        loading="eager"
+      />
 
-        <div class="tagline">
-          <span class="pill">Accès contrôlé</span>
-          <span class="pill">Publication minimale</span>
-          <span class="pill" id="pulse">COMING SOON</span>
-        </div>
-      </header>
+      <div class="pill" role="status" aria-live="polite">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Site en préparation</span>
+      </div>
 
-      <h1>Signal en préparation.</h1>
-      <p class="lead">
-        Plateforme vitrine en cours de mise en ligne. Les informations détaillées, scénarios et éléments techniques ne sont pas publiés.
+      <p class="tagline">
+        Vitrine minimaliste. Informations détaillées et éléments techniques non publiés.
       </p>
 
-      <div class="keywords" aria-live="polite">
-        <span style="opacity:.9;">keywords</span>
-        <span class="kw"><span class="dot"></span><span id="kw">innovation</span></span>
-      </div>
-
-      <div class="grid">
-        <div class="box">
-          <h3>Architecture</h3>
-          <p>Systèmes simples, robustes, combinatoires. Recherche du ratio effet/coût maximal.</p>
-        </div>
-        <div class="box">
-          <h3>Asymétrie</h3>
-          <p>Approches distribuées, difficiles à neutraliser, adaptées aux environnements contraints.</p>
-        </div>
-        <div class="box">
-          <h3>Confidentialité</h3>
-          <p>Publication minimale. Pas de schémas sensibles. Pas de données d’emploi ouvertes.</p>
-        </div>
-      </div>
-
       <footer>
-        <span>© 2025 Lafayette Power</span>
-        <span>lafayettepower.fr</span>
+        © <span id="y"></span> Lafayette Power
       </footer>
     </section>
   </main>
 
   <script>
-    // Rotation mots-clés (propre, léger)
-    const words = [
-      "innovation", "asymétrie", "robustesse", "systèmes autonomes",
-      "optimisation", "architecture", "discrétion", "effet/coût"
-    ];
-    let i = 0;
-    const el = document.getElementById("kw");
-    setInterval(() => {
-      i = (i + 1) % words.length;
-      el.textContent = words[i];
-    }, 1400);
-
-    // petit “pulse” sur le badge coming soon
-    const pulse = document.getElementById("pulse");
-    let on = false;
-    setInterval(() => {
-      on = !on;
-      pulse.style.background = on ? "rgba(11,27,43,.10)" : "rgba(11,27,43,.06)";
-    }, 900);
+    document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
