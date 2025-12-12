@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Lafayette Power</title>
-  <meta name="description" content="Lafayette Power — site vitrine." />
+  <meta name="description" content="Lafayette Power — publication minimale." />
   <meta name="robots" content="index,follow" />
 
   <style>
@@ -13,25 +13,28 @@
       --bg:#ffffff;
       --fg:#0b1220;
       --muted:#5b6475;
-      --max:1100px;
-      --line: rgba(20,30,50,.12);
-      --ok:#1aa34a;
+      --line:rgba(11,18,32,.12);
+      --max:980px;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
+
     body{
       margin:0;
       background:var(--bg);
       color:var(--fg);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      text-rendering:optimizeLegibility;
     }
 
     .wrap{
       min-height:100svh;
       display:grid;
       place-items:center;
-      padding:clamp(16px, 4vw, 48px);
+      padding:clamp(18px, 4vw, 56px);
     }
 
     .card{
@@ -40,80 +43,77 @@
       flex-direction:column;
       align-items:center;
       text-align:center;
-      gap:clamp(10px, 2vw, 18px);
+      gap:clamp(14px, 2.2vw, 22px);
     }
 
+    /* LOGO */
     .logo{
       width:min(720px, 92vw);
       height:auto;
       display:block;
-      image-rendering:auto;
     }
 
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:.6rem;
-      padding:.65rem 1rem;
-      border:1px solid var(--line);
-      border-radius:999px;
-      font-size:clamp(12px, 1.6vw, 14px);
-      color:rgba(11,18,32,.82);
-      background:rgba(255,255,255,.86);
-      backdrop-filter:saturate(140%) blur(6px);
-    }
-    .dot{
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      background:var(--ok);
-      box-shadow:0 0 0 5px rgba(26,163,74,.12);
-    }
-
-    /* Keywords (apparition / disparition) */
+    /* KEYWORDS (fade in/out) */
     .keywords{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:.6rem;
-      flex-wrap:wrap;
-      margin-top:2px;
-      color:var(--muted);
-      font-size:clamp(13px, 1.7vw, 16px);
-      line-height:1.35;
-    }
-    .k-label{
-      opacity:.75;
-    }
-    .k-word{
       position:relative;
-      display:inline-block;
-      padding:.25rem .6rem;
-      border:1px solid rgba(20,30,50,.10);
-      border-radius:999px;
-      background:rgba(245,247,252,.9);
-      color:rgba(11,18,32,.88);
-      min-width:12ch;
-      text-align:center;
-      overflow:hidden;
-      white-space:nowrap;
+      height:1.6em;
+      width:min(720px, 92vw);
+      margin-top:2px;
+      display:grid;
+      place-items:center;
+      font-weight:600;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-size:clamp(12px, 1.7vw, 14px);
+      color:rgba(11,18,32,.68);
     }
-    .k-word span{
-      display:inline-block;
-      will-change: transform, opacity, filter;
-      animation: swap 2.8s ease-in-out infinite;
+    .keywords span{
+      position:absolute;
+      inset:0;
+      display:grid;
+      place-items:center;
+      opacity:0;
+      transform:translateY(6px);
+      animation:swap 9s infinite;
     }
+    .keywords span:nth-child(1){animation-delay:0s;}
+    .keywords span:nth-child(2){animation-delay:3s;}
+    .keywords span:nth-child(3){animation-delay:6s;}
+
     @keyframes swap{
-      0%   {opacity:0; transform:translateY(6px); filter:blur(2px)}
-      12%  {opacity:1; transform:translateY(0);  filter:blur(0)}
-      78%  {opacity:1; transform:translateY(0);  filter:blur(0)}
-      100% {opacity:0; transform:translateY(-6px); filter:blur(2px)}
+      0%   {opacity:0; transform:translateY(6px); filter:blur(2px);}
+      10%  {opacity:1; transform:translateY(0);  filter:blur(0);}
+      33%  {opacity:1; transform:translateY(0);  filter:blur(0);}
+      43%  {opacity:0; transform:translateY(-6px); filter:blur(2px);}
+      100% {opacity:0; transform:translateY(-6px); filter:blur(2px);}
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .keywords span{animation:none; opacity:1; position:static; transform:none; filter:none;}
+      .keywords{height:auto}
+      .keywords span:nth-child(2), .keywords span:nth-child(3){display:none;}
+    }
+
+    /* Text block */
+    .story{
+      width:min(70ch, 92vw);
+      margin:0;
+      padding-top:clamp(4px, 1vw, 10px);
+      border-top:1px solid var(--line);
+      font-size:clamp(14px, 2.1vw, 16px);
+      line-height:1.65;
+      color:rgba(11,18,32,.74);
+    }
+    .story strong{
+      color:rgba(11,18,32,.92);
+      font-weight:700;
     }
 
     footer{
-      margin-top:clamp(18px, 3vw, 26px);
+      margin-top:clamp(12px, 2.2vw, 18px);
       font-size:12px;
-      color:rgba(11,18,32,.55);
+      color:rgba(11,18,32,.45);
     }
   </style>
 </head>
@@ -121,52 +121,37 @@
 <body>
   <main class="wrap">
     <section class="card" aria-label="Lafayette Power">
+
       <img
         class="logo"
         src="IMG_3337.png"
         alt="Lafayette Power"
         loading="eager"
+        decoding="async"
       />
 
-      <div class="pill" role="status" aria-live="polite">
-        <span class="dot" aria-hidden="true"></span>
-        <span>Site en préparation</span>
+      <div class="keywords" aria-label="Mots-clés">
+        <span>Asymétrie • Low-cost</span>
+        <span>Effet / coût • Robustesse</span>
+        <span>Sobriété • Impact</span>
       </div>
 
-      <div class="keywords" aria-label="Mots-clés">
-        <span class="k-label">Mots-clés</span>
-        <span class="k-word"><span id="kw">innovation</span></span>
-      </div>
+      <p class="story">
+        <strong>La Fayette</strong> traverse l’Atlantique jeune, sans attendre qu’on lui donne la permission d’être utile :
+        il vient là où ça compte pour apporter de la force, de la clarté et un avantage décisif à une cause plus grande que lui.
+        Même esprit ici : privilégier le <strong>rapport effet / coût</strong>, des architectures simples, et une exécution robuste.
+      </p>
 
       <footer>
         © <span id="y"></span> Lafayette Power
       </footer>
+
     </section>
   </main>
 
   <script>
     // année auto
     document.getElementById("y").textContent = new Date().getFullYear();
-
-    // rotation de mots-clés (apparition / disparition)
-    const words = [
-      "innovation",
-      "optimisation",
-      "asymétrie",
-      "robustesse",
-      "systèmes autonomes",
-      "low cost",
-      "résilience",
-      "architecture"
-    ];
-    const kw = document.getElementById("kw");
-    let i = 0;
-
-    // change le mot au moment où l'anim retombe à 0 d'opacité
-    setInterval(() => {
-      i = (i + 1) % words.length;
-      kw.textContent = words[i];
-    }, 2800); // doit matcher la durée @keyframes swap (2.8s)
   </script>
 </body>
 </html>
