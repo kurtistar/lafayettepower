@@ -53,19 +53,29 @@
       display:block;
     }
 
+    /* COMING SOON */
+    .coming{
+      margin:2px 0 0;
+      font-weight:700;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:clamp(12px, 1.8vw, 14px);
+      color:rgba(11,18,32,.72);
+    }
+
     /* KEYWORDS (fade in/out) */
     .keywords{
       position:relative;
       height:1.6em;
       width:min(720px, 92vw);
-      margin-top:2px;
+      margin-top:0;
       display:grid;
       place-items:center;
       font-weight:600;
       letter-spacing:.06em;
       text-transform:uppercase;
       font-size:clamp(12px, 1.7vw, 14px);
-      color:rgba(11,18,32,.68);
+      color:rgba(11,18,32,.62);
     }
     .keywords span{
       position:absolute;
@@ -130,6 +140,8 @@
         decoding="async"
       />
 
+      <div class="coming">Coming Soon</div>
+
       <div class="keywords" aria-label="Mots-clés">
         <span>Asymétrie • Low-cost</span>
         <span>Effet / coût • Robustesse</span>
@@ -139,7 +151,6 @@
       <p class="story">
         <strong>La Fayette</strong> traverse l’Atlantique jeune, sans attendre qu’on lui donne la permission d’être utile :
         il vient là où ça compte pour apporter de la force, de la clarté et un avantage décisif à une cause plus grande que lui.
-        Même esprit ici : privilégier le <strong>rapport effet / coût</strong>, des architectures simples, et une exécution robuste.
       </p>
 
       <footer>
@@ -150,7 +161,6 @@
   </main>
 
   <script>
-    // année auto
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 </body>
