@@ -4,9 +4,58 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Lafayette Power</title>
-  <meta name="description" content="Lafayette Power — publication minimale." />
-  <meta name="robots" content="index,follow" />
+  <!-- Primary SEO -->
+  <title>Lafayette Power — Architectures asymétriques & low-cost</title>
+  <meta name="description" content="Lafayette Power — architectures asymétriques orientées effet/coût, robustesse et impact. Site officiel. Coming soon." />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://lafayettepower.fr/" />
+
+  <!-- Social (Open Graph) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Lafayette Power" />
+  <meta property="og:title" content="Lafayette Power — Architectures asymétriques & low-cost" />
+  <meta property="og:description" content="Architectures asymétriques orientées effet/coût, robustesse et impact. Site officiel. Coming soon." />
+  <meta property="og:url" content="https://lafayettepower.fr/" />
+  <meta property="og:image" content="https://lafayettepower.fr/IMG_3337.png" />
+  <meta property="og:image:secure_url" content="https://lafayettepower.fr/IMG_3337.png" />
+  <meta property="og:image:type" content="image/png" />
+  <!-- Idéal: une image OG 1200x630 dédiée. Si tu en crées une, remplace la ligne og:image par /og-image.png -->
+
+  <!-- Social (X / Twitter) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lafayette Power — Architectures asymétriques & low-cost" />
+  <meta name="twitter:description" content="Architectures asymétriques orientées effet/coût, robustesse et impact. Site officiel. Coming soon." />
+  <meta name="twitter:image" content="https://lafayettepower.fr/IMG_3337.png" />
+
+  <!-- UX / PWA-ish -->
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light" />
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- Icons (optionnels mais recommandés si tu ajoutes les fichiers) -->
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- Perf: preload du visuel principal -->
+  <link rel="preload" as="image" href="IMG_3337.png" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Lafayette Power",
+    "url": "https://lafayettepower.fr/",
+    "logo": "https://lafayettepower.fr/IMG_3337.png",
+    "description": "Architectures asymétriques orientées effet/coût, robustesse et impact.",
+    "sameAs": []
+  }
+  </script>
 
   <style>
     :root{
@@ -44,6 +93,19 @@
       align-items:center;
       text-align:center;
       gap:clamp(14px, 2.2vw, 22px);
+    }
+
+    /* SEO/access: titre réel mais invisible */
+    .sr-only{
+      position:absolute !important;
+      width:1px !important;
+      height:1px !important;
+      padding:0 !important;
+      margin:-1px !important;
+      overflow:hidden !important;
+      clip:rect(0,0,0,0) !important;
+      white-space:nowrap !important;
+      border:0 !important;
     }
 
     /* LOGO */
@@ -131,6 +193,7 @@
 <body>
   <main class="wrap">
     <section class="card" aria-label="Lafayette Power">
+      <h1 class="sr-only">Lafayette Power</h1>
 
       <img
         class="logo"
@@ -157,6 +220,11 @@
         © <span id="y"></span> Lafayette Power
       </footer>
 
+      <noscript>
+        <p class="story" style="border-top:none;padding-top:0;margin-top:-10px">
+          JavaScript est désactivé : l’affichage reste fonctionnel.
+        </p>
+      </noscript>
     </section>
   </main>
 
