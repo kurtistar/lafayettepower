@@ -4,11 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Primary SEO -->
   <title>Lafayette Power — Architectures asymétriques & low-cost</title>
   <meta name="description" content="Lafayette Power — architectures asymétriques orientées effet/coût, robustesse et impact. Site officiel. Coming soon." />
+  <meta name="author" content="Lafayette Power" />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
   <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
 
+  <!-- Canonical -->
   <link rel="canonical" href="https://lafayettepower.fr/" />
 
   <!-- Open Graph (réseaux sociaux) -->
@@ -21,18 +24,21 @@
   <meta property="og:image" content="https://lafayettepower.fr/og-image.png" />
   <meta property="og:image:secure_url" content="https://lafayettepower.fr/og-image.png" />
   <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
   <!-- X / Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Lafayette Power — Architectures asymétriques & low-cost" />
   <meta name="twitter:description" content="Architectures asymétriques orientées effet/coût, robustesse et impact. Site officiel. Coming soon." />
   <meta name="twitter:image" content="https://lafayettepower.fr/og-image.png" />
+  <meta name="twitter:url" content="https://lafayettepower.fr/" />
 
   <!-- Icons -->
   <link rel="icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-  <!-- UX -->
+  <!-- UX / Rendering -->
   <meta name="theme-color" content="#ffffff" />
   <meta name="color-scheme" content="light" />
   <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
@@ -41,7 +47,7 @@
   <!-- Perf -->
   <link rel="preload" as="image" href="IMG_3337.png" />
 
-  <!-- Structured Data -->
+  <!-- Structured Data (Google) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -49,6 +55,7 @@
     "name": "Lafayette Power",
     "url": "https://lafayettepower.fr/",
     "logo": "https://lafayettepower.fr/IMG_3337.png",
+    "image": "https://lafayettepower.fr/og-image.png",
     "description": "Architectures asymétriques orientées effet/coût, robustesse et impact.",
     "sameAs": []
   }
@@ -92,6 +99,7 @@
       gap:clamp(14px, 2.2vw, 22px);
     }
 
+    /* True H1 for SEO/accessibility, visually hidden */
     .sr-only{
       position:absolute !important;
       width:1px !important;
@@ -104,12 +112,14 @@
       border:0 !important;
     }
 
+    /* LOGO */
     .logo{
       width:min(720px, 92vw);
       height:auto;
       display:block;
     }
 
+    /* COMING SOON */
     .coming{
       margin:2px 0 0;
       font-weight:700;
@@ -119,6 +129,7 @@
       color:rgba(11,18,32,.72);
     }
 
+    /* KEYWORDS (fade in/out) */
     .keywords{
       position:relative;
       height:1.6em;
@@ -153,12 +164,14 @@
       100% {opacity:0; transform:translateY(-6px); filter:blur(2px);}
     }
 
+    /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
       .keywords span{animation:none; opacity:1; position:static; transform:none; filter:none;}
       .keywords{height:auto}
       .keywords span:nth-child(2), .keywords span:nth-child(3){display:none;}
     }
 
+    /* Text block */
     .story{
       width:min(70ch, 92vw);
       margin:0;
