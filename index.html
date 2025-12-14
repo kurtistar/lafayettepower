@@ -4,44 +4,41 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Primary SEO -->
   <title>Lafayette Power — Architectures asymétriques & low-cost</title>
   <meta name="description" content="Lafayette Power — architectures asymétriques orientées effet/coût, robustesse et impact. Site officiel. Coming soon." />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
   <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
 
-  <!-- Canonical -->
   <link rel="canonical" href="https://lafayettepower.fr/" />
 
-  <!-- Social (Open Graph) -->
+  <!-- Open Graph (réseaux sociaux) -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:site_name" content="Lafayette Power" />
   <meta property="og:title" content="Lafayette Power — Architectures asymétriques & low-cost" />
   <meta property="og:description" content="Architectures asymétriques orientées effet/coût, robustesse et impact. Site officiel. Coming soon." />
   <meta property="og:url" content="https://lafayettepower.fr/" />
-  <meta property="og:image" content="https://lafayettepower.fr/IMG_3337.png" />
-  <meta property="og:image:secure_url" content="https://lafayettepower.fr/IMG_3337.png" />
+  <meta property="og:image" content="https://lafayettepower.fr/og-image.png" />
+  <meta property="og:image:secure_url" content="https://lafayettepower.fr/og-image.png" />
   <meta property="og:image:type" content="image/png" />
-  <!-- Idéal: une image OG 1200x630 dédiée. Si tu en crées une, remplace la ligne og:image par /og-image.png -->
 
-  <!-- Social (X / Twitter) -->
+  <!-- X / Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Lafayette Power — Architectures asymétriques & low-cost" />
   <meta name="twitter:description" content="Architectures asymétriques orientées effet/coût, robustesse et impact. Site officiel. Coming soon." />
-  <meta name="twitter:image" content="https://lafayettepower.fr/IMG_3337.png" />
+  <meta name="twitter:image" content="https://lafayettepower.fr/og-image.png" />
 
-  <!-- UX / PWA-ish -->
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- UX -->
   <meta name="theme-color" content="#ffffff" />
   <meta name="color-scheme" content="light" />
   <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-  <!-- Icons (optionnels mais recommandés si tu ajoutes les fichiers) -->
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-  <!-- Perf: preload du visuel principal -->
+  <!-- Perf -->
   <link rel="preload" as="image" href="IMG_3337.png" />
 
   <!-- Structured Data -->
@@ -95,7 +92,6 @@
       gap:clamp(14px, 2.2vw, 22px);
     }
 
-    /* SEO/access: titre réel mais invisible */
     .sr-only{
       position:absolute !important;
       width:1px !important;
@@ -108,14 +104,12 @@
       border:0 !important;
     }
 
-    /* LOGO */
     .logo{
       width:min(720px, 92vw);
       height:auto;
       display:block;
     }
 
-    /* COMING SOON */
     .coming{
       margin:2px 0 0;
       font-weight:700;
@@ -125,7 +119,6 @@
       color:rgba(11,18,32,.72);
     }
 
-    /* KEYWORDS (fade in/out) */
     .keywords{
       position:relative;
       height:1.6em;
@@ -160,14 +153,12 @@
       100% {opacity:0; transform:translateY(-6px); filter:blur(2px);}
     }
 
-    /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
       .keywords span{animation:none; opacity:1; position:static; transform:none; filter:none;}
       .keywords{height:auto}
       .keywords span:nth-child(2), .keywords span:nth-child(3){display:none;}
     }
 
-    /* Text block */
     .story{
       width:min(70ch, 92vw);
       margin:0;
